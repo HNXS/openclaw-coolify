@@ -28,7 +28,7 @@ services:
       - clawdbot-config:/home/node/.clawdbot
       - clawdbot-workspace:/home/node/clawd
 
-    command: ["bash", "/app/scripts/coolify-bootstrap.sh"]
+    command: ["bash", "/app/scripts/bootstrap.sh"]
 
 volumes:
   clawdbot-config:
