@@ -1,20 +1,17 @@
-# SearXNG Configuration
 use_default_settings: true
+
 server:
   port: 8080
-  bind_address: "0.0.0.0"
-  secret_key: "ultrasecretkey" # Overridden by env var if set
-  # public_instance: true
+  bind_address: 0.0.0.0
+  secret_key: ${SEARXNG_SERVER_SECRET_KEY}
   image_proxy: true
-
-search:
-  safe_search: 0
-  autocomplete: "google"
-  formats:
-    - html
-    - json
-    - csv
-    - rss
 
 general:
   debug: false
+
+search:
+  safe_search: 0
+  autocomplete: google
+  formats:
+    - html
+    - json

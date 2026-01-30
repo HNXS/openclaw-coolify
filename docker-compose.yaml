@@ -145,11 +145,14 @@ services:
   searxng:
     image: searxng/searxng:latest
     restart: unless-stopped
+
+    volumes:
+      - ./searxng:/etc/searxng
+      - searxng-data:/var/lib/searxng
+
     environment:
-      - SEARXNG_BASE_URL=http://localhost:8888/
-      - SEARXNG_URL=http://localhost:8888/
-      - SEARXNG_SERVER_SECRET_KEY=${SERVICE_BASE64_SEARXNG}
-      - SEARXNG_SEARCH_FORMATS=html,json
+      SEARXNG_BASE_URL: http://searxng:8080
+      SEARXNG_SERVER_SECRET_KEY: ${SERVICE_BASE64_SEARXNG}
 
     cap_drop:
       - ALL
