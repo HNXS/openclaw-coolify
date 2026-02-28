@@ -86,11 +86,11 @@ RUN --mount=type=cache,target=/data/.npm \
     fi 
 
 # Install uv explicitly
-RUN curl -L https://github.com/azlux/uv/releases/latest/download/uv-linux-x64 -o /usr/local/bin/uv && \
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
     chmod +x /usr/local/bin/uv
 
 # Claude + Kimi
-RUN curl -fsSL https://claude.ai/install.sh | bash && \
+RUN npm install -g @anthropic-ai/claude-code && \
     curl -L https://code.kimi.com/install.sh | bash && \
     command -v uv
 
