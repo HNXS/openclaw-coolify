@@ -211,4 +211,5 @@ echo "      openclaw onboard"
 echo ""
 echo "=================================================================="
 echo "🔧 Current ulimit is: $(ulimit -n)"
+ln -sf /data/.local/bin/openclaw /usr/local/bin/openclaw
 exec openclaw gateway run
