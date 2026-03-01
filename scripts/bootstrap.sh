@@ -67,6 +67,7 @@ seed_agent "main" "OpenClaw"
 # ----------------------------
 # Generate Config with Prime Directive
 # ----------------------------
+rm -f "$CONFIG_FILE"
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "🏥 Generating openclaw.json with Prime Directive..."
   TOKEN=$(openssl rand -hex 24 2>/dev/null || node -e "console.log(require('crypto').randomBytes(24).toString('hex'))")
