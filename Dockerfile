@@ -98,6 +98,11 @@ RUN npm install -g @anthropic-ai/claude-code && \
 # Make sure uv and other local bins are available
 ENV PATH="/root/.local/bin:${PATH}"
 
+# Install Docker CLI (for docker-proxy communication)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    docker.io \
+    && rm -rf /var/lib/apt/lists/*
+
 ########################################
 # Stage 4: Final
 ########################################
