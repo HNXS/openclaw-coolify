@@ -215,4 +215,8 @@ echo "🔧 Current ulimit is: $(ulimit -n)"
 if [ -x "/data/.local/bin/openclaw" ]; then
     ln -sf /data/.local/bin/openclaw /usr/local/bin/openclaw
 fi
-exec openclaw gateway run
+echo "DEBUG: PATH=$PATH"
+echo "DEBUG: which openclaw = $(which openclaw 2>&1 || echo 'not found')"
+echo "DEBUG: npm bin -g = $(npm bin -g 2>&1)"
+echo "DEBUG: ls npm global bin = $(ls -la $(npm bin -g)/ 2>&1 | head -20)"
+sleep 300  # Keep container alive for 5 min so you can read logs
