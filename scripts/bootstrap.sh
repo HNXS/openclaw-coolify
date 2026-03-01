@@ -211,5 +211,8 @@ echo "      openclaw onboard"
 echo ""
 echo "=================================================================="
 echo "🔧 Current ulimit is: $(ulimit -n)"
-ln -sf /data/.local/bin/openclaw /usr/local/bin/openclaw
+# Only symlink if the target actually exists (e.g. manual install to /data)
+if [ -x "/data/.local/bin/openclaw" ]; then
+    ln -sf /data/.local/bin/openclaw /usr/local/bin/openclaw
+fi
 exec openclaw gateway run
