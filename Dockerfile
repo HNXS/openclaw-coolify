@@ -86,7 +86,8 @@ RUN --mount=type=cache,target=/data/.npm \
     fi 
 
 # Install uv explicitly
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    cp /root/.local/bin/uv /usr/local/bin/uv && \
     chmod +x /usr/local/bin/uv
 
 # Claude + Kimi
