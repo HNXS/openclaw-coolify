@@ -215,16 +215,4 @@ echo "🔧 Current ulimit is: $(ulimit -n)"
 if [ -x "/data/.local/bin/openclaw" ]; then
     ln -sf /data/.local/bin/openclaw /usr/local/bin/openclaw
 fi
-echo "DEBUG: ls /usr/local/lib/node_modules/:"
-ls /usr/local/lib/node_modules/ 2>&1
-echo "DEBUG: npm globals:"
-npm list -g --depth=0 2>&1
-echo "DEBUG: /usr/local/bin contents:"
-ls /usr/local/bin/ 2>&1
-echo "DEBUG: openclaw package.json bin field:"
-cat /usr/local/lib/node_modules/openclaw/package.json | grep -A5 '"bin"' 2>&1
-echo "DEBUG: openclaw package files:"
-ls /usr/local/lib/node_modules/openclaw/ 2>&1
-echo "DEBUG: any executable in openclaw package:"
-find /usr/local/lib/node_modules/openclaw -name "*.js" -path "*/bin/*" -o -name "cli*" 2>&1 | head -10
-sleep 300
+exec openclaw gateway run
