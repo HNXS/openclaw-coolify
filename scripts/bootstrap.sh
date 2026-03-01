@@ -110,7 +110,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
     "bind": "lan",
     "controlUi": {
       "enabled": true,
-      "allowInsecureAuth": false
+      "allowInsecureAuth": false,
+      "allowedOrigins": ["https://${SERVICE_FQDN_OPENCLAW}"]
     },
     "trustedProxies": [
       "*"
