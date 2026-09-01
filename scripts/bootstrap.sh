@@ -108,7 +108,9 @@ if [ ! -f "$CONFIG_FILE" ]; then
       "allowedOrigins": ["https://${SERVICE_FQDN_OPENCLAW}"]
     },
     "trustedProxies": [
-      "*"
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16"
     ],
     "tailscale": {
       "mode": "off",
