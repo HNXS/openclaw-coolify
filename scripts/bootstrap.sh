@@ -85,13 +85,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
   "plugins": {
     "enabled": true,
     "entries": {
-      "whatsapp": {
-        "enabled": true
-      },
       "telegram": {
-        "enabled": true
-      },
-      "google-antigravity-auth": {
         "enabled": true
       }
     }
