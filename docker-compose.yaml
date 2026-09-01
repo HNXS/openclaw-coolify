@@ -16,6 +16,8 @@ services:
       nofile:
         soft: 65535
         hard: 65535
+    env_file:
+      - .env
     environment:
       DOCKER_HOST: tcp://docker-proxy:2375
       OPENCLAW_ENABLE_WEBHOOK_PROXY: "1"
